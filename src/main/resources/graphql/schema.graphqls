@@ -1,0 +1,93 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+"Suche nach Autohausdaten"
+type Query {
+  "Suche Autohausdaten anhand der ID"
+  autohaus(id: ID!): Autohaus
+
+  "Suche Autohausdaten anhand von Suchkriterien"
+  autohaeuser(input: Suchkriterien): [Autohaus!]
+}
+
+type Mutation {
+  "Einen neuen Autohausdatensatz anlegen"
+  create(input: AutohausInput!): CreatePayload
+}
+
+"Schema eines Autohauses"
+type Autohaus {
+  id: ID
+  name: String!
+  homepage: String
+  adresse: Adresse!
+  mitarbeiter: [Mitarbeiter!]
+  parkplatz: Parkplatz!
+}
+
+"Schema einer Adresse"
+type Adresse {
+  plz: String!
+  ort: String!
+}
+
+"Schema eines Mitarbeiters"
+type Mitarbeiter {
+  vorname: String!
+  nachname: String!
+  position: String!
+}
+
+"Schema eines Parkplatzes"
+type Parkplatz {
+  maxKapazitaet: String!
+  kapazitaet: String!
+}
+
+"Suchkriterien für die Query 'autohaus'"
+input Suchkriterien {
+  name: String
+  homepage: String
+}
+
+"Eingabedaten für ein neues Autohaus"
+input AutohausInput {
+  name: String!
+  homepage: String
+  adresse: AdresseInput!
+  mitarbeiter: [MitarbeiterInput!]
+  parkplatz: ParkplatzInput!
+}
+
+"Aufzählungstyp für die Position eines Mitarbeiters"
+enum Position {
+  SEKRETAER
+  MANAGER
+  VERKAEUFER
+}
+
+"Mitarbeitereingabe für ein Autohaus: Neuanlegen oder Ändern"
+input MitarbeiterInput {
+  vorname: String!
+  nachname: String!
+  position: Position!
+}
+
+"Neue oder geänderte Adresse"
+input AdresseInput {
+  plz: String!
+  ort: String!
+}
+
+"Neuer oder geänderter Parkplatz"
+input ParkplatzInput {
+  maxKapazitaet: Int!
+  kapazitaet: Int!
+}
+
+"Rückgabetyp beim Neuanlegen eines Autohauses"
+type CreatePayload {
+  id: String!
+}
