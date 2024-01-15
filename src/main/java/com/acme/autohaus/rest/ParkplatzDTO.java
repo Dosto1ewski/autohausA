@@ -1,7 +1,7 @@
 package com.acme.autohaus.rest;
 
 public record ParkplatzDTO(
-    int maxKapazitaet,
+    String name,
 
     int kapazitaet
 ) {

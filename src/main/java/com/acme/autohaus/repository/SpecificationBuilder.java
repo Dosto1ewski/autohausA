@@ -47,7 +47,7 @@ public class SpecificationBuilder {
         return switch (key) {
             case "name" -> name(value);
             case "homepage" -> homepage(value);
-            case "mitarbeiternachname" -> MitarbeiterNachname(value);
+            case "mitarbeiternachname" -> mitarbeiterNachname(value);
             default -> null;
         };
     }
@@ -66,7 +66,7 @@ public class SpecificationBuilder {
             );
     }
 
-    private Specification<Autohaus> MitarbeiterNachname(final String input) {
+    private Specification<Autohaus> mitarbeiterNachname(final String input) {
         return (root, _, builder) -> {
             Join<Autohaus, Mitarbeiter> mitarbeiterJoin = root.join(Autohaus_.mitarbeiter);
             return builder.like(builder.lower(mitarbeiterJoin.get(Mitarbeiter_.nachname)),

@@ -3,12 +3,12 @@ package com.acme.autohaus.graphql;
 /**
  * Adressdaten.
  *
- * @param maxKapazitaet Die maximale Anzahl an vorhandenen Parkplätzen.
- * @param kapazitaet Die Anzahl an verfügbaren Parkplätzen.
+ * @param name Der Name des Parkplatzes.
+ * @param kapazitaet Die maximale Anzahl an verfügbaren Parkplätzen.
  */
 @SuppressWarnings("RecordComponentNumber")
 public record ParkplatzInput(
-    int maxKapazitaet,
+    String name,
     int kapazitaet
 ) {
 }
