@@ -42,7 +42,7 @@ type Mitarbeiter {
 
 "Schema eines Parkplatzes"
 type Parkplatz {
-  maxKapazitaet: String!
+  name: String!
   kapazitaet: String!
 }
 
@@ -83,7 +83,7 @@ input AdresseInput {
 
 "Neuer oder geänderter Parkplatz"
 input ParkplatzInput {
-  maxKapazitaet: Int!
+  name: String!
   kapazitaet: Int!
 }
 

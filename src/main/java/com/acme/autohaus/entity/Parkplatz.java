@@ -48,11 +48,5 @@ public class Parkplatz {
      * Die maximale Anzahl an Stellplätzen des Autohauses. |
      */
     @PositiveOrZero
-    private int maxKapazitaet;
-
-    /**
-     * Die verfügbare Anzahl an Stellplätzen des Autohauses. |
-     */
-    @PositiveOrZero
     private int kapazitaet;
 }

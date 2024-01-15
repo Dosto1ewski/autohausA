@@ -1,25 +1,3 @@
--- Copyright (C) 2022 - present Juergen Zimmermann, Hochschule Karlsruhe
---
--- This program is free software: you can redistribute it and/or modify
--- it under the terms of the GNU General Public License as published by
--- the Free Software Foundation, either version 3 of the License, or
--- (at your option) any later version.
---
--- This program is distributed in the hope that it will be useful,
--- but WITHOUT ANY WARRANTY; without even the implied warranty of
--- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
--- GNU General Public License for more details.
---
--- You should have received a copy of the GNU General Public License
--- along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
---  docker compose exec postgres bash
---  psql --dbname=kunde --username=kunde [--file=/sql/V1.1__Insert.sql]
-
--- COPY mit CSV-Dateien erfordert den Pfad src/main/resources/...
--- Dieser Pfad existiert aber nicht im Docker-Image
--- https://www.postgresql.org/docs/current/sql-copy.html
-
 INSERT INTO adresse (id, plz, ort)
 VALUES
     ('30000000-0000-0000-0000-000000000000','76131','Karlsruhe'),
@@ -33,7 +11,7 @@ VALUES
     ('00000000-0000-0000-0000-000000000001','Benzhaus','https://www.Benzhaus.com','30000000-0000-0000-0000-000000000001'),
     ('00000000-0000-0000-0000-000000000002','Volkshaus','https://www.Benzhaus.com','30000000-0000-0000-0000-000000000002')
 
-INSERT INTO parkplatz (id, name, maxkapazitaet, autohaus_id, idx)
+INSERT INTO parkplatz (id, name, kapazitaet, autohaus_id, idx)
 VALUES
     ('10000000-0000-0000-0000-000000000000','Yorckparken',34,'00000000-0000-0000-0000-000000000000',0),
     ('10000000-0000-0000-0000-000000000001','Benzparken',42,'00000000-0000-0000-0000-000000000001',0),
