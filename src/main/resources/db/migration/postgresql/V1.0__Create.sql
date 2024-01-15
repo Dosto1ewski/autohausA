@@ -11,7 +11,6 @@ CREATE TABLE IF NOT EXISTS autohaus (
     name          varchar(40) NOT NULL,
     homepage      varchar(40),
     adresse_id    uuid NOT NULL UNIQUE USING INDEX TABLESPACE autohausspace REFERENCES adresse,
-    username      varchar(20) NOT NULL UNIQUE USING INDEX TABLESPACE autohausspace REFERENCES login(username),
     erzeugt       timestamp NOT NULL,
     aktualisiert  timestamp NOT NULL
 ) TABLESPACE autohausspace;
