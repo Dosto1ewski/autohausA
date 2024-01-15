@@ -29,7 +29,7 @@
 --     cd extras\compose\db\postgres
 --     docker compose exec db bash
 --        chown postgres:postgres /var/lib/postgresql/tablespace
---        chown postgres:postgres /var/lib/postgresql/tablespace/kunde
+--        chown postgres:postgres /var/lib/postgresql/tablespace/autohaus
 --        chown postgres:postgres /var/lib/postgresql/key.pem
 --        chown postgres:postgres /var/lib/postgresql/certificate.crt
 --        chmod 600 /var/lib/postgresql/key.pem
@@ -46,7 +46,7 @@
 -- (5) 2. PowerShell:
 --     docker compose exec db bash
 --        psql --dbname=postgres --username=postgres --file=/sql/create-db-autohaus.sql
---        psql --dbname=kunde --username=kunde --file=/sql/create-schema-autohaus.sql
+--        psql --dbname=autohaus --username=autohaus --file=/sql/create-schema-autohaus.sql
 --        exit
 --      docker compose down
 
