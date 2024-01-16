@@ -1,6 +1,7 @@
 package com.acme.autohaus.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -15,6 +16,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import java.util.UUID;
+
+import static jakarta.persistence.EnumType.STRING;
 
 /**
  * Aufbau eines Mitarbeiters eines Autohauses. |
@@ -32,7 +35,6 @@ public class Mitarbeiter {
     /**
      * Die ID eines Mitarbeiters. |
      */
-    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue
     private UUID id;
@@ -61,7 +63,7 @@ public class Mitarbeiter {
     /**
      * Die Position eines Mitarbeiters. |
      */
-    @EqualsAndHashCode.Include
+    @Enumerated(STRING)
     private Position position;
 
     /**

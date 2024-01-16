@@ -19,17 +19,17 @@ import java.util.UUID;
 public interface AutohausRepository extends JpaRepository<Autohaus, UUID>, JpaSpecificationExecutor<Autohaus> {
     @NonNull
     @Override
-    @EntityGraph(attributePaths = {"name", "homepage"})
+    @EntityGraph(attributePaths = {"adresse", "parkplatz", "mitarbeiter"})
     List<Autohaus> findAll();
 
     @NonNull
     @Override
-    @EntityGraph(attributePaths = {"name", "homepage"})
+    @EntityGraph(attributePaths = {"adresse", "parkplatz", "mitarbeiter"})
     List<Autohaus> findAll(@NonNull Specification spec);
 
     @NonNull
     @Override
-    @EntityGraph(attributePaths = {"name"})
+    @EntityGraph(attributePaths = {"adresse", "parkplatz", "mitarbeiter"})
     Optional<Autohaus> findById(@NonNull UUID id);
 
     /**
@@ -42,7 +42,7 @@ public interface AutohausRepository extends JpaRepository<Autohaus, UUID>, JpaSp
         FROM Autohaus a
         WHERE lower(a.name) LIKE concat('%', lower(:name), '%')
         """)
-    @EntityGraph(attributePaths = {"name"})
+    @EntityGraph(attributePaths = {"adresse", "parkplatz", "mitarbeiter"})
     List<Autohaus> findByName(String name);
 
     /**

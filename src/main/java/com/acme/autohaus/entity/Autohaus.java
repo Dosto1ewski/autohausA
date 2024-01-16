@@ -25,7 +25,6 @@ import static jakarta.persistence.FetchType.LAZY;
  * Daten eines Autohauses.
  */
 @Builder
-@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 @Getter
 @Setter
 @ToString
@@ -83,6 +82,9 @@ public class Autohaus {
      */
     @OneToMany(cascade = {PERSIST, REMOVE}, orphanRemoval = true)
     @NotNull
+    @Valid
+    @JoinColumn(name = "autohaus_id")
+    @ToString.Exclude
     private List<Mitarbeiter> mitarbeiter;
 
     /**
@@ -95,10 +97,10 @@ public class Autohaus {
     private Parkplatz parkplatz;
 
     @CreationTimestamp
-    private LocalDateTime createdAt;
+    private LocalDateTime erzeugt;
 
     @UpdateTimestamp
-    private LocalDateTime updatedAt;
+    private LocalDateTime aktualisiert;
 
     /**
      * Autodaten überschreiben

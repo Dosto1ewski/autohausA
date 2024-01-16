@@ -281,7 +281,7 @@ server:
   #http2.enabled: false
   #ssl.enabled: false
   # SWA: Port 8081 statt 8080
-  #port: 8081
+  port: 8081
 
   # $env:TEMP\tomcat-docbase.* -> src\main\webapp (urspruengl. fuer WAR)
   # Document Base = Context Root, siehe https://tomcat.apache.org/tomcat-10.1-doc/config/context.html

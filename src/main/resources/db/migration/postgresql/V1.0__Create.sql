@@ -5,12 +5,21 @@ CREATE TABLE IF NOT EXISTS adresse (
 ) TABLESPACE autohausspace;
 CREATE INDEX IF NOT EXISTS adresse_plz_idx ON adresse(plz) TABLESPACE autohausspace;
 
+CREATE TABLE IF NOT EXISTS parkplatz (
+    id            uuid PRIMARY KEY USING INDEX TABLESPACE autohausspace,
+    name          varchar(40) NOT NULL,
+    kapazitaet integer NOT NULL DEFAULT 0,
+    idx           integer NOT NULL DEFAULT 0
+    ) TABLESPACE autohausspace;
+CREATE INDEX IF NOT EXISTS parkplatz_autohaus_id_idx ON parkplatz(id) TABLESPACE autohausspace;
+
 CREATE TABLE IF NOT EXISTS autohaus (
     id            uuid PRIMARY KEY USING INDEX TABLESPACE autohausspace,
     version       integer NOT NULL DEFAULT 0,
     name          varchar(40) NOT NULL,
     homepage      varchar(40),
     adresse_id    uuid NOT NULL UNIQUE USING INDEX TABLESPACE autohausspace REFERENCES adresse,
+    parkplatz_id    uuid NOT NULL UNIQUE USING INDEX TABLESPACE autohausspace REFERENCES parkplatz,
     erzeugt       timestamp NOT NULL,
     aktualisiert  timestamp NOT NULL
 ) TABLESPACE autohausspace;
@@ -26,12 +35,3 @@ CREATE TABLE IF NOT EXISTS mitarbeiter (
     idx          integer NOT NULL DEFAULT 0
 ) TABLESPACE autohausspace;
 CREATE INDEX IF NOT EXISTS mitarbeiter_autohaus_id_idx ON mitarbeiter(autohaus_id) TABLESPACE autohausspace;
-
-CREATE TABLE IF NOT EXISTS parkplatz (
-    id            uuid PRIMARY KEY USING INDEX TABLESPACE autohausspace,
-    name          varchar(40) NOT NULL,
-    kapazitaet integer NOT NULL DEFAULT 0,
-    autohaus_id   uuid REFERENCES autohaus,
-    idx           integer NOT NULL DEFAULT 0
-) TABLESPACE autohausspace;
-CREATE INDEX IF NOT EXISTS parkplatz_autohaus_id_idx ON parkplatz(autohaus_id) TABLESPACE autohausspace;

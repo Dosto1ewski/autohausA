@@ -19,8 +19,8 @@ interface AutohausMapper {
      * @return Konvertiertes Autohaus-Objekt mit null als ID
      */
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "createdAt", ignore = true)
-    @Mapping(target = "updatedAt", ignore = true)
+    @Mapping(target = "erzeugt", ignore = true)
+    @Mapping(target = "aktualisiert", ignore = true)
     Autohaus toAutohaus(AutohausDTO dto);
 
     /**
