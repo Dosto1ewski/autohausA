@@ -35,8 +35,8 @@ services:
     image: juergenzimmermann/autohaus:2023.10.0-buildpacks
     ports:
       #- published: 8080-8085
-      - published: 8080
-        target: 8080
+      - published: 8081
+        target: 8081
     volumes:
       - type: bind
         source: ..\..\..\src\main\resources\application.yml

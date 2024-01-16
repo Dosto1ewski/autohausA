@@ -116,7 +116,7 @@ spec:
     app.kubernetes.io/name: autohaus
     app.kubernetes.io/instance: autohaus
   ports:
-    - port: 8080
+    - port: 8081
       name: http-service
       targetPort: http
       # https://kubernetes.io/docs/concepts/services-networking/service/#protocol-support
@@ -224,7 +224,7 @@ spec:
             - configMapRef:
                 name: autohaus
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
               name: http
           securityContext:
             # eingebauten User aus dem Basis-Image nutzen: cnb bei "Cloud Native Buildpacks" (oder nonroot bei Distroless)

@@ -36,4 +36,4 @@ if ($versionMinimum -gt $versionCurrent) {
 $host.ui.RawUI.WindowTitle = "$service port forward"
 
 $namespace = 'acme'
-kubectl port-forward service/$service 8080 --namespace $namespace
+kubectl port-forward service/$service 8081 --namespace $namespace

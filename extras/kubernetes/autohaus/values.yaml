@@ -29,7 +29,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 # -- Port des Kubernetes-Service
-servicePort: 8080
+servicePort: 8081
 
 # -- Profile für Spring als Umgebungsvariable
 profile: default
@@ -61,7 +61,9 @@ image:
 
 deployment:
   # -- Port innerhalb des Containers
-  containerPort: 8080
+  containerPort: 8081
+  secretNameDB: postgres
+  autohausSchema: https
 
 # -- ID des Linux-Users
 uid: 1002
@@ -115,7 +117,7 @@ autoscaling:
   memoryUtilizationPercentage: 80
 
 datasource:
-  url: jdbc:postgresql://localhost/autohaus
+  url: jdbc:postgresql://postgres/autohaus?sslmode=verify-ca&sslrootcert=/workspace/BOOT-INF/classes/certificate.crt
   username: autohaus
   password: Change Me!
 

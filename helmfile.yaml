@@ -23,7 +23,7 @@ releases:
     chart: extras/kubernetes/autohaus
     #values: [extras/kubernetes/autohaus/dev.yaml]
     #values: [extras/kubernetes/autohaus/dev.yaml, extras/kubernetes/autohaus/dev-mysql.yaml]
-    values: [extras/kubernetes/autohaus/dev.yaml, extras/kubernetes/autohaus/dev-h2.yaml]
+    values: [extras/kubernetes/autohaus/dev.yaml]
     # Fortio:
     #values: [extras/kubernetes/autohaus/dev.yaml, extras/kubernetes/autohaus/dev-fortio.yaml]
     #values: [extras/kubernetes/autohaus/dev.yaml, extras/kubernetes/autohaus/dev-mysql.yaml, extras/kubernetes/autohaus/dev-fortio.yaml]
